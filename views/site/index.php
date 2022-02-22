@@ -1,11 +1,28 @@
 <?php
 
 /* @var $this yii\web\View */
+use yii\jui\DatePicker;
+use yii\helpers\Html;
+use yii\helpers\HtmlPurifier;
+use app\classes\widgets\HelloWidget;
+use app\classes\widgets\HelloWorldWidget;
 
 $this->title = 'My Yii Application';
 ?>
 <div class="site-index">
 
+    <div>
+        <?= HelloWidget::widget([
+            'message' => 'Olá Mundo',
+            'subMessage' => 'Olá, tudo bem!'
+        ])?>
+
+        <?php HelloWorldWidget::begin(['encode'=>false])?>
+        <h2> Aulas de Yii2 </h2>
+        <h3> Aula de widgets</h3>
+        <?php HelloWorldWidget::end()?>
+
+    </div>
     <div class="jumbotron text-center bg-transparent">
         <h1 class="display-4">Congratulations!</h1>
 
