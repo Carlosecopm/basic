@@ -56,6 +56,11 @@ $config = [
         ],
         */
     ],
+    'modules' => [
+        'financeiro' => [
+            'class' => 'app\modules\financeiro\Financeiro'
+        ]
+    ],
     'params' => $params,
 ];
 
