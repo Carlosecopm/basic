@@ -61,7 +61,36 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        
+        $auth = Yii::$app->authManager;
+
+        $dono = $auth->createRole('dono');
+        $gerente = $auth->createRole('gerente');
+        $vendedor = $auth->createRole('vendedor');
+
+        $auth->add($dono);
+        $auth->add($gerente);
+        $auth->add($vendedor);
+
+        $viewPost = $auth->createPermission('post-index');
+        $addPost = $auth->createPermission('post-create');
+        $editPost = $auth->createPermission('post-edit');
+        $deletePost = $auth->createPermission('post-delete');
+
+        $auth->add($viewPost);
+        $auth->add($addPost);
+        $auth->add($editPost);
+        $auth->add($deletePost);
+
+        $auth->addChild($dono, $viewPost);
+        $auth->addChild($dono, $addPost);
+        $auth->addChild($dono, $editPost);
+        $auth->addChild($dono, $deletePost);
+
+        $auth->addChild($gerente, $viewPost);
+        $auth->addChild($gerente, $editPost);
+        $auth->addChild($gerente, $addPost);
+
+        $auth->addChild($vendedor, $viewPost);
         
         return $this->render('index');
     }
