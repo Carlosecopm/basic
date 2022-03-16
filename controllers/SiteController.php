@@ -61,6 +61,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        /*
         $auth = Yii::$app->authManager;
 
         $dono = $auth->createRole('dono');
@@ -91,7 +92,7 @@ class SiteController extends Controller
         $auth->addChild($gerente, $addPost);
 
         $auth->addChild($vendedor, $viewPost);
-        
+        */
         return $this->render('index');
     }
 
