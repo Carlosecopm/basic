@@ -92,9 +92,22 @@ class SiteController extends Controller
         $auth->addChild($gerente, $addPost);
 
         $auth->addChild($vendedor, $viewPost);
+
+        $auth->assign($dono, 1);
+        $auth->assign($gerente, 2);
+        $auth->assign($vendedor, 3);
         */
         return $this->render('index');
     }
+    /*
+    public function actionTestePermission($userId){
+
+        $auth = Yii::$app->authManager;
+
+        var_dump($auth);
+        exit;
+
+    }*/
 
     /**
      * Login action.
